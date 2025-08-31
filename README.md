@@ -43,8 +43,8 @@ streamlit run webapp.py
 - `webapp.py` - Main Streamlit app
 - `stock_fetch.py` - Stock data fetching and plotting logic
 - `ai_insight.py` - AI-powered stock analysis
-- `.env` - API keys (not tracked by git)
-- `requirement.txt` - Python dependencies
+- `.env` - API keys 
+
 
 ## Notes
 - Do not share your `.env` file or API keys publicly.
