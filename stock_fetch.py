@@ -67,10 +67,40 @@ class StockAnalyzer:
         plt.legend()
         plt.grid(True)
 
+        # Plotting Volume
+        plt.subplot(3, 1, 2)
+        plt.bar(pd.to_datetime(df.index), df['volume'], label=f'{stock_symbol} Volume ({market})', color='green', width=2)
+        plt.xlabel('Date (IST)')
+        plt.ylabel('Volume')
+        plt.legend()
+        plt.grid(True)
+
+        # Plotting Moving Averages
+        plt.subplot(3, 1, 3)
+        df['MA_7'] = df['close'].rolling(window=7).mean()
+        df['MA_20'] = df['close'].rolling(window=20).mean()
+        plt.plot(pd.to_datetime(df.index), df['close'], label=f'{stock_symbol} Closing Price ({market})', color='blue', alpha=0.7)
+        plt.plot(pd.to_datetime(df.index), df['MA_7'], label='7-Day MA', color='orange')
+        plt.plot(pd.to_datetime(df.index), df['MA_20'], label='20-Day MA', color='red')
+        plt.xlabel('Date Month(IST)')
+        plt.ylabel('Price')
+        plt.legend()
+        plt.grid(True)
+
         #Enhanced Data Formatting
         for ax in plt.gcf().axes:
             #Major ticks every month, minor ticks every week
             ax.xaxis.set_major_locator(mdates.MonthLocator())
+            ax.xaxis.set_minor_locator(mdates.WeekdayLocator(byweekday=[0]))  # Monday
+
+            # Formatter for major ticks
+            ax.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m'))
+
+            # Formatter for minor ticks (hover tooltip will provide more detail)
+            #ax.xaxis.set_minor_formatter(mdates.DateFormatter('%Y-%m-%d'))
+
+            # Auto-rotate labels if needed
+            plt.gcf().autofmt_xdate()
 
         
         cursor = widgets.Cursor(plt.gca(), color='red', linewidth=1)
