@@ -69,7 +69,7 @@ class StockAnalyzer:
 
         # Plotting Volume
         plt.subplot(3, 1, 2)
-        plt.bar(pd.to_datetime(df.index), df['volume'], label=f'{stock_symbol} Volume ({market})', color='green', width=2)
+        plt.bar(pd.to_datetime(df.index), df['volume'], label=f'{ticker} Volume ({market})', color='green', width=2)
         plt.xlabel('Date (IST)')
         plt.ylabel('Volume')
         plt.legend()
@@ -79,7 +79,7 @@ class StockAnalyzer:
         plt.subplot(3, 1, 3)
         df['MA_7'] = df['close'].rolling(window=7).mean()
         df['MA_20'] = df['close'].rolling(window=20).mean()
-        plt.plot(pd.to_datetime(df.index), df['close'], label=f'{stock_symbol} Closing Price ({market})', color='blue', alpha=0.7)
+        plt.plot(pd.to_datetime(df.index), df['close'], label=f'{ticker} Closing Price ({market})', color='blue', alpha=0.7)
         plt.plot(pd.to_datetime(df.index), df['MA_7'], label='7-Day MA', color='orange')
         plt.plot(pd.to_datetime(df.index), df['MA_20'], label='20-Day MA', color='red')
         plt.xlabel('Date Month(IST)')
