@@ -24,7 +24,7 @@ source venv/bin/activate
 
 ### 3. Install dependencies
 ```bash
-pip install pandas matplotlib requests pytz google-generativeai streamlit dotenv
+pip install -r requirements.txt
 ```
 
 ### 4. Set up API keys
