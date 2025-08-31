@@ -37,7 +37,7 @@ def analysis():
     market = st.session_state.market
     if not st.session_state.internal_results_available:
         with st.spinner('Fetching and analyzing data...'):
-            image_path = f"/Users/janyak/Desktop/Personal Projects/AI Stock Analyzer/{market}_{stock}.png"
+            image_path = f"images/{market}_{stock}.png"
             st.session_state.image_path = image_path
             stock_api = StockAPI()
             market_data = stock_api.get_stock_data(stock, market)
