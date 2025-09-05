@@ -1,6 +1,7 @@
 # AI Stock Analyzer
 
 AI Stock Analyzer is a Streamlit-based web application that fetches, visualizes, and analyzes stock market data using AI-powered insights.
+https://ai-stock-analyze.streamlit.app
 
 ## Features
 - Fetches daily stock data from Alpha Vantage API
